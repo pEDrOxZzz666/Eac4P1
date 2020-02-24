@@ -104,7 +104,7 @@ public class AppEac4P1 {
         for(int i = 0; i < mQuantitat.length; i++)
         {
             quantitatTotalRaim += mQuantitat[i];
-        }        
+        }      
         // FIN VERIFICACIÓN //
                 
         //Si cantidad total es <= 25000 verificaremos si existe varidad seleccionada        
