@@ -68,7 +68,7 @@ public class AppEac4P1 {
         boolean error=false;        
         
         entradaRaim("raïm negre",  100);
-        for(int i=0; i<mQuantitat.length-2; i++){
+        for(int i=0; i<mQuantitat.length; i++){
            if(mQuantitat[i]>0){
                 error = true;
                 mQuantitat[0]=0;
@@ -120,10 +120,13 @@ public class AppEac4P1 {
                 System.out.println("No se encuentra la variedad. ");                
             }
         }else //Si se supera la cantidad máxima (25000) mostramos mensaje error.
-        {            
-            System.out.println("Superada cantidad máxima (" + MAX_ALMACENAJE + "kg): " + 
-                              (quantitatTotalRaim - quantitat) + " + " + 
-                               quantitat + " = " + quantitatTotalRaim + " kg");            
+        {  
+            System.out.println("\nSuperada cantidad máxima (" + MAX_ALMACENAJE + "kg):");
+            System.out.printf("%s\n%-20s%-20s%-20s\n%s\n%-20d%-20d%-20d\n\n",
+                              "----------------------------------------------",                              
+                              "Cant ALMA","Cant Entrada","SUMA",       
+                              "----------------------------------------------",
+                              (quantitatTotalRaim - quantitat),quantitat, quantitatTotalRaim);
         }  
         
     }
