@@ -1,10 +1,16 @@
+////////////////////////////////////////////
+//   Autor: Pedro Antonio Ruiz Martínez   //
+//   Periodo : 3                          //
+//   APP: Verema                          //
+////////////////////////////////////////////
+
 public class AppEac4P1 {
         
     // CONSTANTES //
     public static final int MAX_ALMACENAJE = 25000;
     // FIN CONSTANTES //
     
-    // CODIFICACIÓN FACILITADA POR EL INSTITUTO //
+    // CODIFICACIÓN VERIFICACIÓN FACILITADA POR EL INSTITUTO //
     String mVarietat[] = {"Ull de llebre","Garnatxa","Xarel·lo","Macabeu","Parellada"};
     int mQuantitat[]={0,0,0,0,0};
     int quantitatTotalRaim = 0;
@@ -56,6 +62,7 @@ public class AppEac4P1 {
         prg.inici();        
     }
     
+    //Método ejecución programa
     private void inici(){
         
         boolean error=false;        
@@ -82,30 +89,29 @@ public class AppEac4P1 {
             }else{
                    System.out.println("Error a l’entrada");
             }
-        }    
+        }       
 
     }    
-    // FIN CODIFICACIÓN FACILITA POR INSTITUTO //
+    // FIN CODIFICACIÓN VERIFICACIÓN FACILITA POR INSTITUTO //
      
     //Método -> Verifica si hay sufiente espacio y existe variedad(posicioVarietat()) 
     private void entradaRaim(String varietat, int quantitat){
                 
         // VERIFICAMOS SI HAY ESPACIO //        
-        quantitatTotalRaim = quantitat; //Almacenamos en 'quantitatTotalRaim' cantidad seleccionada  
+        quantitatTotalRaim = quantitat; //Almacenamos en 'quantitatTotalRaim' cantidad seleccionada (quantitat)  
         
-        //Sumamos a 'quantitatTotalRaim' la cantidad total de KG de 'mQuantitat[]'
+        //Sumamos a 'quantitatTotalRaim' la cantidad total de KG almacenada en 'mQuantitat[]'
         for(int i = 0; i < mQuantitat.length; i++)
         {
             quantitatTotalRaim += mQuantitat[i];
-        }
+        }        
         // FIN VERIFICACIÓN //
-        
-        
+                
         //Si cantidad total es <= 25000 verificaremos si existe varidad seleccionada        
         if((quantitatTotalRaim) <= MAX_ALMACENAJE)
         {
             int posicion = posicioVarietat(varietat); //almacena 'return posicioVarietat()'
-            //Si exite varidad, aumentamos kg (quantitat) en la posición que devuelve 'posicioVarietat()'
+            //Si exite varidad, aumentamos kg (quantitat) en la posición que devuelve 'posicion'
             if(posicion != -1)
             {
                 mQuantitat[posicion] += quantitat;                
@@ -125,10 +131,10 @@ public class AppEac4P1 {
     //Método verificación varidad
     private int posicioVarietat(String varietat){      
                 
-        //Recorremos 'mVarietat' para ver si hay coincidencias 
+        //Recorremos 'mVarietat' para ver si hay coincidencia
         for(int i = 0; i < mVarietat.length; i++)
         {
-            //Si coincidencia, retornamos valor 'i' (posición)
+            //Si hay coincidencia, retornamos valor 'i' (posición)
             if(mVarietat[i].equals(varietat))
             {
                return i;
