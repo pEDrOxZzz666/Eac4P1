@@ -10,7 +10,7 @@ public class AppEac4P1 {
     public static final int MAX_ALMACENAJE = 25000;
     // FIN CONSTANTES //
     
-    // CODIFICACIÓN VERIFICACIÓN FACILITADA POR EL INSTITUTO //
+    // CODIFICACIÓN FACILITADA POR EL INSTITUTO //
     String mVarietat[] = {"Ull de llebre","Garnatxa","Xarel·lo","Macabeu","Parellada"};
     int mQuantitat[]={0,0,0,0,0};
     int quantitatTotalRaim = 0;
@@ -92,29 +92,20 @@ public class AppEac4P1 {
         }       
 
     }    
-    // FIN CODIFICACIÓN VERIFICACIÓN FACILITA POR INSTITUTO //
+    // FIN CODIFICACIÓN FACILITA POR INSTITUTO //
      
     //Método -> Verifica si hay sufiente espacio y existe variedad(posicioVarietat()) 
     private void entradaRaim(String varietat, int quantitat){
-                
-        // VERIFICAMOS SI HAY ESPACIO //        
-        quantitatTotalRaim = quantitat; //Almacenamos en 'quantitatTotalRaim' cantidad seleccionada (quantitat)  
-        
-        //Sumamos a 'quantitatTotalRaim' la cantidad total de KG almacenada en 'mQuantitat[]'
-        for(int i = 0; i < mQuantitat.length; i++)
-        {
-            quantitatTotalRaim += mQuantitat[i];
-        }      
-        // FIN VERIFICACIÓN //
-                
+                     
         //Si cantidad total es <= 25000 verificaremos si existe varidad seleccionada        
-        if((quantitatTotalRaim) <= MAX_ALMACENAJE)
+        if((quantitatTotalRaim + quantitat) <= MAX_ALMACENAJE)
         {
             int posicion = posicioVarietat(varietat); //almacena 'return posicioVarietat()'
             //Si exite varidad, aumentamos kg (quantitat) en la posición que devuelve 'posicion'
             if(posicion != -1)
             {
-                mQuantitat[posicion] += quantitat;                
+                mQuantitat[posicion] += quantitat;    
+                quantitatTotalRaim += quantitat;
             }else //Si no se encuentra variedad mostramos mensaje de error.
             {
                 System.out.println("No se encuentra la variedad. ");                
@@ -126,7 +117,8 @@ public class AppEac4P1 {
                               "----------------------------------------------",                              
                               "Cant ALMA","Cant Entrada","SUMA",       
                               "----------------------------------------------",
-                              (quantitatTotalRaim - quantitat),quantitat, quantitatTotalRaim);
+                              (quantitatTotalRaim),quantitat, quantitatTotalRaim + quantitat);
+            
         }  
         
     }
